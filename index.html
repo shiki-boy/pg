@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <title>Raghunandan</title>
+</head>
+
+<style>
+    body {
+        background: #424242;
+        color: white;
+    }
+
+    @media screen and (min-width: 337px) {
+        blockquote {
+            font-size: 20px;
+            opacity: 0;
+        }
+        #extra {
+            font-size: 19px;
+        }
+        .pr {
+            font-size: 20px;
+        }
+        .brand-logo {
+            font-size: 23px !important;
+            margin-left: 17%;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        blockquote {
+            font-size: 28px;
+            opacity: 0;
+        }
+        #extra {
+            font-size: 26px;
+        }
+        .brand-logo {
+            font-size: 54px !important;
+            margin-left: 0;
+        }
+        .pr {
+            font-size: 31px;
+        }
+    }
+
+    .pr {
+        opacity: 0;
+        border-left: solid 4px rgb(230, 173, 182);
+        padding-left: 15px;
+    }
+
+    #map {
+        width: 0%;
+        height: 0;
+        margin-left: 1%;
+        opacity: 0.2;
+        margin-top: 9px;
+    }
+
+    .con-text {
+        opacity: 0;
+        transform: translateY(130%);
+    }
+</style>
+
+<body>
+
+    <nav class="nav-extended" style="background: linear-gradient(black, #424242);">
+        <div class="nav-wrapper">
+            <div class="section"></div>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <a href="#" class="brand-logo center" style="font-family: 'Bellefair', serif;">Raghunandan PG Residency</a>
+        </div>
+        <div class="section"></div>
+        <div class="nav-content row" style="margin-bottom: 0;">
+            <div class="section"></div>
+            <ul class="tabs tabs-transparent hide-on-med-and-down">
+                <li class="tab col s2">
+                    <a class="try try-about waves-effect waves-red" href="#about" onclick="aboutAnime.restart();addressAnime.restart()">about</a>
+                </li>
+                <li class="tab col s2">
+                    <a href="#meals" class="try try-meals waves-effect waves-light" onclick="mealsAnime.restart();">meals</a>
+                </li>
+                <li class="tab col s2">
+                    <a href="#pricing" class="try try-pricing waves-effect waves-teal" onclick="priceAnime.restart();">pricing</a>
+                </li>
+                <li class="tab col s2">
+                    <a href="#photos" class="active try try-photos waves-effect waves-purple">photos</a>
+                </li>
+                <li class="tab col s2">
+                    <a href="#location" class="try try-location waves-effect waves-yellow" onclick="mapAnime.restart();">location</a>
+                </li>
+                <li class="tab col s2">
+                    <a href="#contact" class="try try-contact waves-effect waves-green" onclick="contactAnime.restart();">contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-nav">
+        <li>
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','about');aboutAnime.restart();addressAnime.restart();">
+                <i class="material-icons">info</i>About</a>
+        </li>
+        <li>
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','meals');mealsAnime.restart();">
+                <i class="material-icons">restaurant</i>Meals</a>
+        </li>
+        <li>
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','pricing');priceAnime.restart();">
+                <i class="material-icons">attach_money</i>Pricing</a>
+        </li>
+        <li>
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','photos')">
+                <i class="material-icons">hotel</i>Photos</a>
+        </li>
+        <li>
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','location');mapAnime.restart();">
+                <i class="material-icons">location_on</i>Location</a>
+        </li>
+        <li>
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','contact');contactAnime.restart();">
+                <i class="material-icons">phone</i>Contact</a>
+        </li>
+    </ul>
+
+
+    <div id="about" class="col s12">
+        <svg id="about-bg" style="width: 100%;position: absolute;z-index: -1;margin-top: -24px;">
+            <circle id='aboutCircle' width="" height="" cx="" cy="" r="" style="stroke:none; fill: rgb(188, 45, 45)" />
+        </svg>
+        <div class="section"></div>
+        <ul class="flow-text" style="width:100%;">
+            <li>
+                <blockquote>The rooms are triple shared</blockquote>
+            </li>
+            <li>
+                <blockquote>Fully furnished
+                    <span class="light" id="extra">(Almirah, Book shelf, Bed, Mattress, Study table)</span>
+                </blockquote>
+            </li>
+            <li>
+                <blockquote>Attached bathrooms</blockquote>
+            </li>
+            <li>
+                <blockquote>1 km walking distance from Jayshree Periwal High School, Chitrakoot</blockquote>
+            </li>
+        </ul>
+        <div class="section"></div>
+        <div class="section"></div>
+        <p id='address-text' class="white-text center-align" style="font-size: 18px;opacity: 0;">
+            <i class="material-icons">location_on</i>64, Marudhar Nagar, Lane No. 3 DCM Ajmer Road, Jaipur - 302021</p>
+    </div>
+
+
+
+    <div id="meals" class="col s12">
+        <svg id="meals-bg" style="width: 100%;position: absolute;z-index: -1;">
+            <circle id='mealsCircle' cx="" cy="" r="" style="stroke:none; fill: #e65100 " />
+        </svg>
+        <div class="section container">
+            <div class="section"></div>
+            <div class="row" style="font-size: 23px;">
+                <div class="col s12 m4">
+                    <div class="card-panel medium red -lighten-1 hoverable z-depth-2">
+                        <ul class="center-align">
+                            <h3>Breakfast</h3>
+                            <li>Tea</li>
+                            <li>Stuffed Parathas</li>
+                            <li>Sandwiches</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card-panel medium red -lighten-1 hoverable z-depth-2">
+                        <ul class="center-align">
+                            <h3>Lunch</h3>
+                            <li>Roti</li>
+                            <li>Rice</li>
+                            <li>Rajma</li>
+                            <li>Seasonal Vegetables</li>
+                            <li>Puri Sabzi</li>
+                            <li>Veg Rice Pullav</li>
+                            <li>Curd / Raita</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card-panel red -lighten-1 hoverable z-depth-2">
+                        <ul class="center-align">
+                            <h3>Dinner</h3>
+                            <li>Roti</li>
+                            <li>Daal</li>
+                            <li>Curd / Raita</li>
+                            <li>Seasonal vegetables</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pricing" class="col s12">
+        <ul style="position: absolute;width: 100%;">
+            <div class="section"></div>
+            <li class="pr">
+                <span style="text-decoration: underline;text-underline-position: under;text-decoration-color: deepskyblue;">
+                    &#8377 7000/-</span> per month
+                <span class="light">(includes breakfast, lunch, dinner)</span>
+            </li>
+            <li class="pr">
+                <p>Electricity not included</p>
+            </li>
+            <li class="pr">
+                <p>A one time security deposit of
+                    <span style="text-decoration: underline;text-underline-position: under;text-decoration-color: deepskyblue;">&#8377 10,000/-</span>
+                    <span class="light">(refundable)</span>
+                </p>
+            </li>
+        </ul>
+        <svg id='pricing-bg' style="width: 100%;">
+            <circle id='pricingCircle' width="" height="" cx="" cy="" r="0" style="stroke:none; fill:#2174f0" />
+        </svg>
+    </div>
+
+    <div id="photos" class="col s12">
+        <svg id='photos-bg' style="width: 100%;position: absolute;">
+            <circle id='photosCircle' width="" height="" cx="" cy="" r="" style="stroke:none; fill:#424242" />
+        </svg>
+        <div class="carousel hide-on-med-and-down" style="height: 35em;">
+            <a class="carousel-item">
+                <img style="width: 800px !important;height: 533px !important;transform: translate(-37%,-13%);" src="/images/2_opt.jpg">
+            </a>
+            <a class="carousel-item">
+                <img style="width: 800px !important;height: 533px !important;transform: translate(-37%,-13%);" src="/images/1_opt.jpg">
+            </a>
+            <a class="carousel-item">
+                <img style="width: 800px !important;height: 533px !important;transform: translate(-37%,-13%);" src="/images/5_opt.jpg">
+            </a>
+            <a class="carousel-item">
+                <img style="width: 800px !important;height: 533px !important;transform: translate(-37%,-13%);" src="/images/6_opt.jpg">
+            </a>
+            <a class="carousel-item">
+                <img style="width: 800px !important;height: 533px !important;transform: translate(-37%,-13%);" src="/images/4_opt.jpg">
+            </a>
+        </div>
+
+        <div class="show-on-small hide-on-med-and-up">
+            <img class="responsive-img" src="/images/2_opt.jpg">
+            <img class="responsive-img" src="/images/1_opt.jpg">
+            <img class="responsive-img" src="/images/5_opt.jpg">
+            <img class="responsive-img" src="/images/6_opt.jpg">
+            <img class="responsive-img" src="/images/4_opt.jpg">
+        </div>
+        <div class="section"></div>
+    </div>
+
+    <div id="location" class="col s12">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.261112457731!2d75.74003521493428!3d26.89520708313508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4941021a9f5%3A0xec1d38e357407705!2sRaghunandan+Paying+Guest+Residency!5e0!3m2!1sen!2sin!4v1518361199010"
+            id="map" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div id="contact" class="col s12">
+        <svg id="contact-bg" style="width: 100%;position: absolute;margin-top: -15px;">
+            <circle id='contactCircle' cx="" cy="" r="" style="stroke:none; fill: purple" />
+        </svg>
+        <p class="center-align con-text">
+            <i class="material-icons">phone</i>
+            <span style="margin-left:12px;font-size: 29px;letter-spacing: 2px;">9414889630</span>
+        </p>
+        <p class="center-align con-text">
+            <i class="material-icons">phone</i>
+            <span style="margin-left:12px;font-size: 29px;letter-spacing: 2px;">0141 - 2350040</span>
+        </p>
+        <p class="con-text white-text center-align" style="font-size: 22px;">
+            <i class="material-icons">location_on</i>64, Marudhar Nagar, Lane No. 3 DCM Ajmer Road, Jaipur - 302021</p>
+
+    </div>
+
+    <script src="/jquery.min.js"></script>
+    <script src="/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
+    <script type="text/javascript">
+
+        var y = document.getElementById('about-bg').getBoundingClientRect().top;
+        if (window.innerWidth < 600) {
+            $('.brand-logo').removeClass('center');
+            $('.brand-logo').addClass('left');
+        }
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.tabs').tabs();
+            $('.carousel').carousel({
+                dist: 100,
+                indicators: true
+            });
+            $('.materialboxed').materialbox();
+
+            $(window).blur(function () {
+                document.title = "Hey Come Back !!!";
+            });
+
+            $(window).focus(function () {
+                document.title = "Raghunandan";
+            });
+
+
+
+            document.getElementById('about-bg').setAttribute('height', '' + window.innerHeight);
+            document.getElementById('pricing-bg').setAttribute('height', '' + window.innerHeight);
+            document.getElementById('meals-bg').setAttribute('height', '' + window.innerHeight);
+            document.getElementById('contact-bg').setAttribute('height', '' + window.innerHeight);
+
+            $(".try").click(function (event) {
+                if (window.innerWidth < 600) {
+                    document.getElementById(`${$(this).text()}Circle`).setAttribute('cx', `${window.innerWidth/2}`);
+                    document.getElementById(`${$(this).text()}Circle`).setAttribute('cy', `${window.innerHeight/2}`);
+                    
+                    var bgCircle = anime({
+                        targets: `#${$(this).text()}Circle`,
+                        r: window.innerHeight,
+                        duration: 1000,
+                        autoplay: false,
+                        easing: "easeInOutQuart",
+                    });
+
+                    bgCircle.play();
+                    $("nav").css('background', 'linear-gradient(black,' + colorSelect($(this).text()));
+                    setTimeout(() => {
+                        $("body").css('background', colorSelect($(this).text()));
+                        bgCircle.finished.then(bgCircle.reverse());
+                    }, 1000);
+                }
+
+                else {
+
+                    var textAnime = anime({
+                        targets: '.try-' + $(this).text(),
+                        fontSize: '23px',
+                        letterSpacing: '4px',
+                        duration: 500,
+                        loop: 2,
+                        direction: 'alternate'
+                    });
+                    document.getElementById(`${$(this).text()}Circle`).setAttribute('cx', `${event.clientX}`);
+                    document.getElementById(`${$(this).text()}Circle`).setAttribute('cy', `${event.clientY - y}`);
+
+                    var bgCircle = anime({
+                        targets: `#${$(this).text()}Circle`,
+                        r: window.innerWidth,
+                        duration: 1000,
+                        autoplay: false,
+                        easing: "easeInOutQuart",
+                    });
+
+                    bgCircle.play();
+                    $("nav").css('background', 'linear-gradient(black,' + colorSelect($(this).text()));
+                    setTimeout(() => {
+                        $("body").css('background', colorSelect($(this).text()));
+                        bgCircle.finished.then(bgCircle.reverse());
+                    }, 1000);
+                }
+
+            });
+
+
+        });
+
+        function colorSelect(area) {
+            if (area == 'about')
+                return 'rgb(188, 45, 45)';
+
+            if (area == 'pricing')
+                return '#2174f0';
+
+            if (area == 'meals')
+                return '#e65100';
+
+            if (area == 'contact')
+                return 'purple';
+            if (area == 'photos')
+                return '#424242';
+        }
+
+        var aboutAnime = anime({
+            targets: 'blockquote',
+            marginLeft: '7%',
+            opacity: 1,
+            autoplay: true,
+            loop: false,
+            delay: function (el, i, l) {
+                return (i * 300);
+            },
+        });
+        var addressAnime = anime({
+            targets: "#address-text",
+            opacity: 1,
+            delay: 300 * 4,
+            duration: 500,
+            easing: 'easeInSine'
+        });
+
+
+
+        var mealsAnime = anime({
+            autoplay: true,
+            targets: '.card',
+            left: 0,
+            top: 0,
+            opacity: 1,
+            easing: 'easeInOutSine',
+            duration: 600
+        });
+
+        var priceAnime = anime({
+            autoplay: true,
+            targets: ".pr",
+            marginLeft: '7%',
+            opacity: 1,
+            delay: function (el, i, l) {
+                return i * 300;
+            }
+        });
+
+        var mapAnime = anime({
+            targets: '#map',
+            width: '97%',
+            opacity: 1,
+            height: 450,
+            autoplay: true,
+            easing: "easeInExpo",
+            duration: 1000
+        });
+
+        var contactAnime = anime({
+            targets: '.con-text',
+            translateY: '50px',
+            opacity: 1,
+            easing: "easeInSine",
+            autoplay: true,
+            duration: 450,
+            delay: function (el, i, l) {
+                return i * 300;
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
