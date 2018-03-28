@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <title>Document</title>
+</head>
+<body>
+        
+    
+    <div style="width: 100%;">
+        <svg>
+            <circle cx="40" cy="40" r="24" style="stroke:#ffffff; fill:#00cc00" />
+        </svg>
+    </div>
+    
+    
+    <script src="animateplus.js" type="module"></script>
+    <script type="module">
+        import animate from "/animateplus.js";
+
+        animate({
+            elements: "circle",
+            r: [0, 50]
+        });
+    </script>
+
+
+</body>
+</html>

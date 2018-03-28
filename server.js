@@ -9,6 +9,9 @@ app.use(express.static(__dirname + '/files'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
+app.get('/try', (req, res) => {
+    res.sendFile(__dirname + '/try.html');
+});
 
 var d = new Date();
 app.listen(port, () => {

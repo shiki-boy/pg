@@ -111,15 +111,15 @@
 
     <ul class="sidenav" id="mobile-nav">
         <li>
-            <a class="sidenav-close" onclick="$('.tabs').tabs('select','about');aboutAnime.restart();addressAnime.restart();">
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','about');window.aboutAnime.restart();window.addressAnime.restart();">
                 <i class="material-icons">info</i>About</a>
         </li>
         <li>
-            <a class="sidenav-close" onclick="$('.tabs').tabs('select','meals');mealsAnime.restart();">
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','meals');window.mealsAnime.restart();">
                 <i class="material-icons">restaurant</i>Meals</a>
         </li>
         <li>
-            <a class="sidenav-close" onclick="$('.tabs').tabs('select','pricing');priceAnime.restart();">
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','pricing');window.priceAnime.restart();">
                 <i class="material-icons">attach_money</i>Pricing</a>
         </li>
         <li>
@@ -127,11 +127,11 @@
                 <i class="material-icons">hotel</i>Photos</a>
         </li>
         <li>
-            <a class="sidenav-close" onclick="$('.tabs').tabs('select','location');mapAnime.restart();">
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','location');window.mapAnime.restart();">
                 <i class="material-icons">location_on</i>Location</a>
         </li>
         <li>
-            <a class="sidenav-close" onclick="$('.tabs').tabs('select','contact');contactAnime.restart();">
+            <a class="sidenav-close" onclick="$('.tabs').tabs('select','contact');window.contactAnime.restart();">
                 <i class="material-icons">phone</i>Contact</a>
         </li>
     </ul>
@@ -173,7 +173,7 @@
         <div class="section container">
             <div class="section"></div>
             <div class="row" style="font-size: 23px;">
-                <div class="col s12 m4">
+                <div class="meal col s12 m4">
                     <div class="card-panel medium red -lighten-1 hoverable z-depth-2">
                         <ul class="center-align">
                             <h3>Breakfast</h3>
@@ -183,7 +183,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col s12 m4">
+                <div class="meal col s12 m4">
                     <div class="card-panel medium red -lighten-1 hoverable z-depth-2">
                         <ul class="center-align">
                             <h3>Lunch</h3>
@@ -236,7 +236,8 @@
     </div>
 
     <div id="photos" class="col s12">
-        <svg id='photos-bg' style="width: 100%;position: absolute;">
+
+        <svg id='photos-bg' style="width: 100%;position: absolute;z-index: -1;">
             <circle id='photosCircle' width="" height="" cx="" cy="" r="" style="stroke:none; fill:#424242" />
         </svg>
         <div class="carousel hide-on-med-and-down" style="height: 35em;">
@@ -258,9 +259,9 @@
         </div>
 
         <div class="show-on-small hide-on-med-and-up">
-            <img class="responsive-img" src="/images/2_opt.jpg">
-            <img class="responsive-img" src="/images/1_opt.jpg">
-            <img class="responsive-img" src="/images/5_opt.jpg">
+            <img class="responsive-img photo" src="/images/2_opt.jpg">
+            <img class="responsive-img photo" src="/images/1_opt.jpg">
+            <img class="responsive-img photo" src="/images/5_opt.jpg">
             <img class="responsive-img" src="/images/6_opt.jpg">
             <img class="responsive-img" src="/images/4_opt.jpg">
         </div>
@@ -282,8 +283,10 @@
         </p>
         <p class="center-align con-text">
             <i class="material-icons">phone</i>
-            <span style="margin-left:12px;font-size: 29px;letter-spacing: 2px;">0141 - 2350040</span>
+            <span style="margin-left:12px;font-size: 29px;letter-spacing: 2px;">8209818948</span>
         </p>
+        <div class="section"></div>
+        <div class="section"></div>
         <p class="con-text white-text center-align" style="font-size: 22px;">
             <i class="material-icons">location_on</i>64, Marudhar Nagar, Lane No. 3 DCM Ajmer Road, Jaipur - 302021</p>
 
@@ -291,8 +294,13 @@
 
     <script src="/jquery.min.js"></script>
     <script src="/anime.min.js"></script>
+	<script src="/animateplus.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
-    <script type="text/javascript">
+    
+    
+    <script type="module">
+        
+        import animate from '/animateplus.js';
 
         var y = document.getElementById('about-bg').getBoundingClientRect().top;
         if (window.innerWidth < 600) {
@@ -300,6 +308,14 @@
             $('.brand-logo').addClass('left');
         }
         $(document).ready(function () {
+            if (window.innerWidth < 600){
+                animate({
+                    elements: ".photo",
+                    transform: ["scale(0.15)",1],
+                    duration: 1000,
+                    easing: "in-out-cubic"
+                });
+            }
             $('.sidenav').sidenav();
             $('.tabs').tabs();
             $('.carousel').carousel({
@@ -328,19 +344,38 @@
                     document.getElementById(`${$(this).text()}Circle`).setAttribute('cx', `${window.innerWidth/2}`);
                     document.getElementById(`${$(this).text()}Circle`).setAttribute('cy', `${window.innerHeight/2}`);
                     
-                    var bgCircle = anime({
+                    if ($(this).text() == 'meals'){
+                        animate({
+                            elements: ".meal",
+                            easing: "out-elastic",
+                            delay: index => index * 100,
+                            duration:1250,
+                            speed:0.6,
+                            transform: ["scale(0)",1]
+                        });
+                    }
+                    /*var bgCircle = anime({
                         targets: `#${$(this).text()}Circle`,
                         r: window.innerHeight,
                         duration: 1000,
                         autoplay: false,
                         easing: "easeInOutQuart",
+                    });*/
+                    
+                    var tryCricle = animate({
+                        elements: `#${$(this).text()}Circle`,
+                        r: [0,window.innerHeight],
+                        duration: 1300,
+                        easing: "in-out-quartic",
+
                     });
 
-                    bgCircle.play();
+                    // bgCircle.play();
                     $("nav").css('background', 'linear-gradient(black,' + colorSelect($(this).text()));
                     setTimeout(() => {
                         $("body").css('background', colorSelect($(this).text()));
-                        bgCircle.finished.then(bgCircle.reverse());
+                        // bgCircle.finished.then(bgCircle.reverse());
+
                     }, 1000);
                 }
 
@@ -401,9 +436,10 @@
             autoplay: true,
             loop: false,
             delay: function (el, i, l) {
-                return (i * 300);
+                return (i * 500 + 200);
             },
         });
+
         var addressAnime = anime({
             targets: "#address-text",
             opacity: 1,
@@ -411,7 +447,6 @@
             duration: 500,
             easing: 'easeInSine'
         });
-
 
 
         var mealsAnime = anime({
@@ -430,7 +465,7 @@
             marginLeft: '7%',
             opacity: 1,
             delay: function (el, i, l) {
-                return i * 300;
+                return i * 500 + 200;
             }
         });
 
@@ -455,9 +490,14 @@
                 return i * 300;
             }
         });
-
-
-
+        
+       window.aboutAnime = aboutAnime;
+       window.mapAnime = mapAnime;
+       window.contactAnime = contactAnime;
+       window.priceAnime = priceAnime;
+       window.mealsAnime = mealsAnime;
+       window.addressAnime = addressAnime;
+    
 
     </script>
 </body>
