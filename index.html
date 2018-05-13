@@ -139,7 +139,7 @@
 
     <div id="about" class="col s12">
         <svg id="about-bg" style="width: 100%;position: absolute;z-index: -1;margin-top: -24px;">
-            <circle id='aboutCircle' width="" height="" cx="" cy="" r="" style="stroke:none; fill: rgb(188, 45, 45)" />
+            <circle id='aboutCircle' width=0 height=0 cx=0 cy=0 r=0 style="stroke:none; fill: rgb(188, 45, 45)" />
         </svg>
         <div class="section"></div>
         <ul class="flow-text" style="width:100%;">
@@ -168,7 +168,7 @@
 
     <div id="meals" class="col s12">
         <svg id="meals-bg" style="width: 100%;position: absolute;z-index: -1;">
-            <circle id='mealsCircle' cx="" cy="" r="" style="stroke:none; fill: #e65100 " />
+            <circle id='mealsCircle' cx=0 cy=0 r=0 style="stroke:none; fill: #e65100 " />
         </svg>
         <div class="section container">
             <div class="section"></div>
@@ -215,30 +215,33 @@
     <div id="pricing" class="col s12">
         <ul style="position: absolute;width: 100%;">
             <div class="section"></div>
-            <li class="pr">
-                <span style="text-decoration: underline;text-underline-position: under;text-decoration-color: deepskyblue;">
-                    &#8377 7000/-</span> per month
-                <span class="light">(includes breakfast, lunch, dinner)</span>
+            <li>
+                <blockquote >
+                    <span style="border-bottom: ridge 3px #e72b2b;padding-bottom: 4px;">
+                    &#8377 7000/- </span> 
+                    per month
+                <span class="light">(includes breakfast, lunch, dinner)</blockquote>
             </li>
-            <li class="pr">
-                <p>Electricity not included</p>
+            <li>
+                <blockquote>Electricity not included</blockquote>
             </li>
-            <li class="pr">
-                <p>A one time security deposit of
-                    <span style="text-decoration: underline;text-underline-position: under;text-decoration-color: deepskyblue;">&#8377 10,000/-</span>
+            <li>
+                <blockquote>A one time security deposit of
+                    <span style="border-bottom: ridge 3px #e72b2b;padding-bottom: 4px;">
+                        &#8377 10,000/-</span>
                     <span class="light">(refundable)</span>
-                </p>
+                </blockquote>
             </li>
         </ul>
         <svg id='pricing-bg' style="width: 100%;">
-            <circle id='pricingCircle' width="" height="" cx="" cy="" r="0" style="stroke:none; fill:#2174f0" />
+            <circle id='pricingCircle' width=0 height=0 cx=0 cy=0 r="0" style="stroke:none; fill:#2174f0" />
         </svg>
     </div>
 
     <div id="photos" class="col s12">
 
         <svg id='photos-bg' style="width: 100%;position: absolute;z-index: -1;">
-            <circle id='photosCircle' width="" height="" cx="" cy="" r="" style="stroke:none; fill:#424242" />
+            <circle id='photosCircle' width=0 height=0 cx=0 cy=0 r=0 style="stroke:none; fill:#424242" />
         </svg>
         <div class="carousel hide-on-med-and-down" style="height: 35em;">
             <a class="carousel-item">
@@ -275,7 +278,7 @@
 
     <div id="contact" class="col s12">
         <svg id="contact-bg" style="width: 100%;position: absolute;margin-top: -15px;">
-            <circle id='contactCircle' cx="" cy="" r="" style="stroke:none; fill: purple" />
+            <circle id='contactCircle' cx=0 cy=0 r=0 style="stroke:none; fill: purple" />
         </svg>
         <p class="center-align con-text">
             <i class="material-icons">phone</i>
@@ -315,8 +318,15 @@
                     duration: 1000,
                     easing: "in-out-cubic"
                 });
+                document.addEventListener('DOMContentLoaded', function () {
+                    var elems = document.querySelectorAll('.sidenav');
+                    var instances = M.Sidenav.init(elems,options);
+                });
             }
-            $('.sidenav').sidenav();
+
+            // $('.sidenav').sidenav();
+
+
             $('.tabs').tabs();
             $('.carousel').carousel({
                 dist: 100,
