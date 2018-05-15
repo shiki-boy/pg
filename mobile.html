@@ -1,16 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
     <title>PG Raghunandan</title>
 </head>
 
+<style>
+    #brand-text {
+        background: linear-gradient(#8b70b5, #00b8ff);
+        color: white;
+        font-size: 17px;
+        text-shadow: 2px 2px 10px #607D8B;
+    }
+
+    #pricing-content,
+    #contact-content,
+    #location-content,
+    #meals-content,
+    #photos-content {
+        display: none;
+    }
+</style>
+
 <body>
-    <h1>Hello Mobile!</h1>
+    <script type="text/javascript">
+        if (window.innerWidth > 600) {
+            window.open('/', '_self');
+        }
+    </script>
+
+
+
+    <div class="ui inverted labeled icon left inline vertical sidebar menu" style="">
+        <a class="item sidebar-link" data-target="about-content">
+            <i class="info circle icon"></i>
+            About
+        </a>
+        <a class="item sidebar-link" data-target="pricing-content">
+            <i class="rupee sign icon"></i>
+            Pricng
+        </a>
+        <a class="item sidebar-link" data-target="meals-content">
+            <i class="utensils icon"></i>
+            Meals
+        </a>
+        <a class="item sidebar-link" data-target="photos-content">
+            <i class="images icon"></i>
+            Photos
+        </a>
+        <a class="item sidebar-link" data-target="location-content">
+            <i class="map marker alternate icon"></i>
+            Location
+        </a>
+        <a class="item sidebar-link" data-target="contact-content">
+            <i class="phone icon"></i>
+            Contact
+        </a>
+    </div>
+
+
+    <div class="pusher">
+
+        <div class="ui menu">
+            <a class="item">
+                <i class="bars icon"></i>
+                Menu
+            </a>
+            <div class="header item active" id="brand-text">PG Raghunandan Residency</div>
+        </div>
+
+        <div class="ui piled segment" id="about-content" style="margin: 5.5%;">
+            <a class="ui red ribbon label">About</a>
+            <ol class="ui list">
+                <li value="&#9830">The rooms are triple shared</li>
+                <li value="&#9830">Fully furnished
+                    <ol>
+                        <li value="-">Almirah</li>
+                        <li value="-">Book Shelf</li>
+                        <li value="-">Study Table</li>
+                        <li value="-">Bed</li>
+                        <li value="-">Matress</li>
+                    </ol>
+                </li>
+                <li value="&#9830">Attached Bathrooms</li>
+                <li value="&#9830">1 km walking distance from Jayshree Periwal High School, Chitrakoot</li>
+            </ol>
+        </div>
+
+        <div class="ui piled segment" id="pricing-content" style="margin: 5.5%;">
+            <a class="ui blue ribbon label">Pricing</a>
+            <ol class="ui list">
+                <li value="&#9830">
+                    <span style="font-wfour: bold; color: #3d7ff7; text-shadow: 0.5px 0px 1px;"> ₹ 7000/- </span>per month (includes breakfast, lunch, dinner)</li>
+
+                <li value="&#9830">Electricity not included</li>
+                <li value="&#9830">A one time security deposit of
+                    <span style="font-weight: bold; color: #3d7ff7; text-shadow: 0.5px 0px 1px;">₹ 10,000/-</span> (refundable)</li>
+            </ol>
+        </div>
+
+        <div class="ui piled segment" id="meals-content" style="margin: 5.5%;">
+            <a class="ui orange ribbon label">Meals</a>
+            <div class="" style="margin: 7%;">
+                <div class="ui shape column" style="">
+                    <div class="sides">
+
+                        <div class="active side">
+                            <div class="ui centered red card">
+                                <div class="content">
+                                    <div class="center aligned header">Lunch</div>
+                                    <div class="center aligned description">
+                                        <div class="ui two column grid">
+                                            <div class="column">
+                                                <p>Roti</p>
+                                                <p>Rice</p>
+                                                <p>Rajma</p>
+                                                <p>Curd</p>
+                                            </div>
+                                            <div class="column">
+                                                <div class="ui grid">
+                                                    <div class="column">
+                                                        <p>Seasoned Vegetables</p>
+                                                        <p>Puri Sabzi</p>
+                                                        <p>Veg Rice Pullav</p>
+                                                        <p>Raita</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="side">
+                            <div class="ui centered blue card">
+                                <div class="content">
+                                    <div class="center aligned header">Breakfast</div>
+                                    <div class="center aligned description">
+                                        <div class="ui hidden divider"></div>
+                                        <p>Stuffed Paranthas</p>
+                                        <p>Tea</p>
+                                        <p>Sandwiches</p>
+                                        <div class="ui hidden divider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="side">
+                            <div class="ui centered green card">
+                                <div class="content">
+                                    <div class="center aligned header">Dinner</div>
+                                    <div class="center aligned description">
+                                        <p>Roti</p>
+                                        <p>Daal</p>
+                                        <p>Seasoned Vegtables</p>
+                                        <p>Curd/Raita</p>
+                                        <div class="ui hidden divider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <button class="ui icon button centered primary" id="left-btn">
+                <i class="left arrow icon"></i>
+            </button>
+            <button class="ui icon button centered right floated primary" id="right-btn">
+                <i class="right arrow icon"></i>
+            </button>
+        </div>
+
+
+        <div class="ui piled segment" id="photos-content" style="margin: 5.5%;">
+            <a class="ui green ribbon label">Photos</a>
+            <div class="ui hidden divider"></div>
+            <img class=" ui fluid image rounded" src="/images/2_opt.jpg">
+            <div class="ui hidden divider"></div>
+            <img class=" ui fluid image rounded" src="/images/1_opt.jpg">
+            <div class="ui hidden divider"></div>
+            <img class=" ui fluid image rounded" src="/images/5_opt.jpg">
+            <div class="ui hidden divider"></div>
+            <img class=" ui fluid image rounded" src="/images/6_opt.jpg">
+            <div class="ui hidden divider"></div>
+            <img class=" ui fluid image rounded" src="/images/4_opt.jpg">
+            <div class="ui hidden divider"></div>
+        </div>
+
+
+        <div class="ui piled segment" id="location-content" style="margin: 5.5%;">
+            <a class="ui teal ribbon label">Location</a>
+            <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7649.501555945099!2d75.73821428461189!3d26.89315803690685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4941021a9f5%3A0xec1d38e357407705!2sRaghunandan+Paying+Guest+Residency!5e0!3m2!1sen!2sin!4v1524423259728"
+                width="97%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+
+        <div class="ui piled segment" id="contact-content" style="margin: 5.5%;">
+            <a class="ui blue ribbon label">Contact Us</a>
+            <div class="ui hidden divider"></div>
+            <p>
+                <i class="phone icon"></i>9414889630</p>
+            <p>
+                <i class="phone icon"></i>8209818948</p>
+            <p>
+                <i class="map marker alternate icon"></i>64, Marudhar Nagar, Lane No. 3 DCM Ajmer Road, Jaipur - 302021</p>
+        </div>
+
+    </div>
+
+    <script src="/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+    <script>
+        var current = "about-content";
+
+        $('.menu').click(function () {
+            $('.ui.sidebar')
+                .sidebar({ dimPage: false })
+                .sidebar('toggle');
+        });
+
+        $("#right-btn").click(function () {
+            $('.shape').shape('flip right');
+        });
+
+        $("#left-btn").click(function () {
+            $('.shape').shape('flip left');
+        });
+
+        $(".sidebar-link").click(function () {
+            $("#" + current).transition('scale', {
+                onComplete: () => {
+                    current = $(this).attr('data-target');
+                    $("#" + current).transition('scale');
+                }
+            })
+        });
+
+
+    </script>
+
 </body>
 
 </html>

@@ -9,8 +9,13 @@ app.use(express.static(__dirname + '/files'));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
+
 app.get('/try', (req, res) => {
     res.sendFile(__dirname + '/try.html');
+});
+
+app.get('/mobile',(req,res) =>{
+    res.sendFile(__dirname + '/mobile.html');
 });
 
 var d = new Date();
