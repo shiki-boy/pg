@@ -6,6 +6,7 @@ var port = process.env.PORT || 2222;
 
 app.use(express.static(__dirname + '/files'));
 
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
@@ -14,8 +15,12 @@ app.get('/try', (req, res) => {
     res.sendFile(__dirname + '/try.html');
 });
 
-app.get('/mobile',(req,res) =>{
+app.get('/mobile', (req, res) => {
     res.sendFile(__dirname + '/mobile.html');
+});
+
+app.use(function (req, res) {
+    res.status(404).sendFile(__dirname + '/index.html');
 });
 
 var d = new Date();
